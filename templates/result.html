@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+{% if results[0][0]['rate'] > 90 %}
+    {% if results[0][0]['label'] == 0 %}
+        <h2 style="margin-left:10px;">「<span class="red">{{results[0][0]['rate']}}</span>パーセント　の　かくりつ　で　<span class="red">{{results[0][0]['name']}}</span>　じゃ！」</h2>
+            <div class="col-md-7">
+                <img src={{results[1]}} class="detect_img">
+            </div>
+            <div class="col-md-5">
+                <p>
+                    <img src={{results[2]}} class="cut_image">
+                </p>
+                <p class="detail_container">
+                    <はんてい><br>
+                        {{results[0][0]['name']}}：{{results[0][0]['rate']}}%<br>
+                        {{results[0][1]['name']}}：{{results[0][1]['rate']}}%<br>
+                        {{results[0][2]['name']}}：{{results[0][2]['rate']}}%<br>
+                </p>
+                <a href="{{ url_for('upload_file') }}">もどる</a>
+            </div>
+    {% elif results[0][0]['label'] == 1 %}
+    <h2 style="margin-left:10px;">「<span class="red">{{results[0][0]['rate']}}</span>パーセント　の　かくりつ　で　<span class="red">{{results[0][0]['name']}}</span>　じゃ！」</h2>
+        <div class="col-md-7">
+            <img src={{results[1]}} class="detect_img">
+        </div>
+        <div class="col-md-5">
+            <p>
+                <img src={{results[2]}} class="cut_image">
+            </p>
+            <p class="detail_container">
+                <はんてい><br>
+                    {{results[0][0]['name']}}：{{results[0][0]['rate']}}%<br>
+                    {{results[0][1]['name']}}：{{results[0][1]['rate']}}%<br>
+                    {{results[0][2]['name']}}：{{results[0][2]['rate']}}%<br>
+            </p>
+            <a href="{{ url_for('upload_file') }}">もどる</a>
+        </div>
+    {% elif results[0][0]['label'] == 2 %}
+    <h2 style="margin-left:10px;">「<span class="red">{{results[0][0]['rate']}}</span>パーセント　の　かくりつ　で　<span class="red">{{results[0][0]['name']}}</span>　じゃ！」</h2>
+        <div class="col-md-7">
+            <img src={{results[1]}} class="detect_img">
+        </div>
+        <div class="col-md-5">
+            <p>
+                <img src={{results[2]}} class="cut_image">
+            </p>
+            <p class="detail_container">
+                <はんてい><br>
+                    {{results[0][0]['name']}}：{{results[0][0]['rate']}}%<br>
+                    {{results[0][1]['name']}}：{{results[0][1]['rate']}}%<br>
+                    {{results[0][2]['name']}}：{{results[0][2]['rate']}}%<br>
+            </p>
+            <a href="{{ url_for('upload_file') }}">もどる</a>
+        </div>
+    {% else %}
+    <h3 style="margin-left:10px;"><span class="red">NOT EXILE TRIVE!!</span></h3>
+    <div class="col-md-7">
+      <img src={{results[1]}} class="detect_img">
+    </div>
+    <div class="col-md-5">
+      <p style="margin-top:70px;">
+        　　　だ〜れだ？<br>
+        <img src={{results[2]}} class="cut_image"></p>
+      <p class="detail_container">
+        <はんてい><br>
+        {{results[0][0]['name']}}：{{results[0][0]['rate']}}%<br>
+        {{results[0][1]['name']}}：{{results[0][1]['rate']}}%<br>
+        {{results[0][2]['name']}}：{{results[0][2]['rate']}}%<br>
+      </p>
+      <a href="{{ url_for('upload_file') }}">もどる</a>
+    </div>
+    {% endif %}
+{% else %}
+<a href="{{ url_for('upload_file') }}">もどる</a>
+{% endif %}
+{% endblock %}
